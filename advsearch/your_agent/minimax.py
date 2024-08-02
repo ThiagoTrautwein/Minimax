@@ -18,10 +18,11 @@ def minimax_move(state:GameState, max_depth:int, eval_func:Callable) -> Tuple[in
     return a
 
 def MAX(state:GameState, alpha, beta, eval_func:Callable):
+    if state.is_terminal():
+        return eval_func(state, state.player), None
+    
     v = float('-inf')
     a = None
-    if state.is_terminal():
-        return eval_func(state, state.player), a
     
     moves = state.legal_moves()
     for move in moves:
@@ -36,10 +37,11 @@ def MAX(state:GameState, alpha, beta, eval_func:Callable):
     return v, a
 
 def MIN(state:GameState, alpha, beta, eval_func:Callable):
+    if state.is_terminal():
+        return eval_func(state, state.player), None
+    
     v = float('inf')
     a = None
-    if state.is_terminal():
-        return eval_func(state, state.player), a
     
     moves = state.legal_moves()
     for move in moves:
