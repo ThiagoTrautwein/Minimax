@@ -33,35 +33,8 @@ def utility(state:GameState, player:str) -> float:
     """
     winner = state.winner()
     if winner == player:
-        return 1
+        return float('inf')
     elif winner is not None:
-        return -1
+        return float('-inf')
     else:
         return 0
-
-    '''for i in range(3):
-        if (state.board.board[i][0] == player):
-            if (state.board.board[i][0] == state.board.board[i][1] or state.board.board[i][1] == state.board.board[i][2]):
-                utility -= 1
-                if (state.board.board[i][0] == state.board.board[i][1] and state.board.board[i][1] == state.board.board[i][2]):
-                    utility -= 1
-
-        elif (state.board.board[i][0] == oponent):
-            if (state.board.board[i][0] == state.board.board[i][1] or state.board.board[i][1] == state.board.board[i][2]):
-                utility += 1
-                if (state.board.board[i][0] == state.board.board[i][1] and state.board.board[i][1] == state.board.board[i][2]):
-                    utility += 1
-
-        if (state.board.board[0][i] == player):
-            if (state.board.board[0][i] == state.board.board[1][i] or state.board.board[1][i] == state.board.board[2][i]):
-                utility -= 1
-                if (state.board.board[0][i] == state.board.board[1][i] and state.board.board[1][i] == state.board.board[2][i]):
-                    utility -= 1
-                    
-        elif(state.board.board[0][i] == oponent):
-            if (state.board.board[0][i] == state.board.board[1][i] or state.board.board[1][i] == state.board.board[2][i]):
-                utility += 1
-                if (state.board.board[0][i] == state.board.board[1][i] and state.board.board[1][i] == state.board.board[2][i]):
-                    utility += 1'''
-
-    return utility
